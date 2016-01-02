@@ -7,7 +7,7 @@ defmodule GameOfLife do
   defp next_state(:dead, 2), do: :live
   defp next_state(_, _), do: :dead
 
-  defp number_neighbours({ x, y }, cells) do
+  def number_neighbours({ x, y }, cells) do
     list = [{ x - 1, y - 1}, {x, y - 1}, {x + 1, y - 1},
             { x - 1, y}, {x + 1, y},
             { x - 1, y + 1}, {x, y + 1}, {x + 1, y + 1}]
@@ -28,8 +28,10 @@ defmodule GameOfLife do
     next_state(state_of_cell(coordinates, cells), number_neighbours(coordinates, cells))
   end
 
-  defp state_of_cell({x, y}, cells) do
+  def state_of_cell({x, y}, cells) when (x >= 0 and y >= 0) do
     row = Enum.at cells, x, []
     Enum.at row, y, :dead
   end
+  def state_of_cell({x, y}, cells), do: :dead
+
 end
