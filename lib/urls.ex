@@ -1,17 +1,25 @@
 defmodule Urls do
 
-  def short(url, prefix) do
-  	small = url
+  def short_url(url) do
+  	url
   	  |> Urls.reduce
   	  |> Urls.compose
-  	prefix <> small
+  end
+
+  def similar_short_url(short_url) do
+    short_url <> random_char
+  end
+
+  def random_char() do
+    number = :random.uniform(26) - 1
+  	letter_char(number)
   end
 
   def reduce(str) when is_binary(str) do
     _to_number(str, 0, 0)
   end
 
-  defp _to_number(<<>>, acc, pos), do: acc
+  defp _to_number(<<>>, acc, _), do: acc
   defp _to_number(<< head::utf8, tail::binary >>, acc, pos) when pos == 0 do
     _to_number(tail, head + acc, pos + 1)
   end
@@ -35,13 +43,17 @@ defmodule Urls do
   end
 
   defp valid_char(str) do
-    number = str
-     |> Integer.parse
-     |> elem(0)
-     |> rem(26)
-    << (number + 97)::utf8 >>
+    str
+      |> Integer.parse
+      |> elem(0)
+      |> letter_char
     # The same
     #{val, _} = Integer.parse(str)
     #<< (rem(val, 26) + 97)::utf8 >>
+  end
+
+  defp letter_char(number) do
+    valid_char_number = rem(number, 26)
+    << (valid_char_number + 97)::utf8 >>
   end
 end

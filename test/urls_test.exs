@@ -20,8 +20,21 @@ defmodule UrlsTest do
   end
 
   test "short url" do
-    prefix = "http://localhost/"
-    assert Urls.short("http://www.google.com", prefix) == "http://localhost/gtu"
-    assert Urls.short("http://tecnologia.elpais.com/tecnologia/2015/12/04/actualidad/1449259283_679909.html", prefix) == "http://localhost/egia"
+    assert Urls.short_url("http://www.google.com") == "gtu"
+    assert Urls.short_url("http://tecnologia.elpais.com/tecnologia/2015/12/04/actualidad/1449259283_679909.html") == "egia"
+  end
+
+  test "random char" do
+    letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
+      "m" ,"n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+    created_chars = for _ <- 1..250, do: Urls.random_char
+    assert Enum.all? created_chars, &(Enum.member?(letters, &1))
+  end
+
+  test "similar short url" do
+    short = "shy"
+    similar = Urls.similar_short_url short
+    assert String.length(similar) == (String.length(short) + 1)
+    assert String.starts_with? similar, short
   end
 end
