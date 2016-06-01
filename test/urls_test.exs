@@ -10,13 +10,13 @@ defmodule UrlsTest do
   end
 
   test "number to small word" do
-	assert Urls.compose(0) == "a"
+	  assert Urls.compose(0) == "a"
     assert Urls.compose(1) == "b"
-	assert Urls.compose(25) == "z"
-	assert Urls.compose(26) == "a"
-	assert Urls.compose(245) == "fy"
-	assert Urls.compose(2660324) == "egia"
-	assert Urls.compose(742353475684) == "gevbxw"
+	  assert Urls.compose(25) == "z"
+	  assert Urls.compose(26) == "a"
+	  assert Urls.compose(245) == "fy"
+	  assert Urls.compose(2660324) == "egia"
+	  assert Urls.compose(742353475684) == "gevbxw"
   end
 
   test "short url" do

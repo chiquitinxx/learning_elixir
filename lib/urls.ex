@@ -1,13 +1,13 @@
 defmodule Urls do
-
+  @moduledoc "Urls shortener"
   def short_url(url) do
   	url
-  	  |> Urls.reduce
-  	  |> Urls.compose
+  	  |> reduce
+  	  |> compose
   end
 
-  def similar_short_url(short_url) do
-    short_url <> random_char
+  def similar_short_url(url) do
+    url <> random_char
   end
 
   def random_char() do

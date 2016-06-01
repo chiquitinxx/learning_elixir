@@ -1,7 +1,5 @@
 defmodule Chop do
-  defp try_message(x) do
-    IO.puts "Try #{x}"
-  end
+  @moduledoc "Try discover secret number in a range"
   def guess(number, initial..final) do
     try(number, middle(initial, final), initial, final)
   end
@@ -18,5 +16,8 @@ defmodule Chop do
   end
   defp middle(initial, final) do
     div(final + initial, 2)
+  end
+  defp try_message(x) do
+    IO.puts "Trying #{x}"
   end
 end

@@ -1,9 +1,9 @@
 defmodule Fizzbuzz do
-
+   @moduledoc "Fizzbuzz demo"
    def fizzbuzz(number) when number < 1, do: []
 
    def fizzbuzz(number) do
-     1..number |> Enum.to_list |> Enum.map &fb/1
+     1..number |> Enum.to_list |> Enum.map(&fb/1)
    end
 
    defp fb(x) when rem(x, 15) == 0, do: "FizzBuzz"

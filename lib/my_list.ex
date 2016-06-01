@@ -1,4 +1,5 @@
 defmodule MyList do
+  @moduledoc "Flattern lists"
   def flatten(list), do: _flatten(list, [])
 
   defp _flatten([head | tail], result) when is_list(head) do

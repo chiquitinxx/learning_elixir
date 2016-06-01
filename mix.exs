@@ -4,7 +4,7 @@ defmodule LearningElixir.Mixfile do
   def project do
     [app: :learning_elixir,
      version: "0.0.1",
-     elixir: "~> 1.1",
+     elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps]
@@ -28,7 +28,8 @@ defmodule LearningElixir.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      { :httpoison, "~> 0.8"}
+      {:httpoison, "~> 0.8"},
+      {:credo, "~> 0.3", only: [:dev, :test]}
       #{:hackney, "~> 1.4"}
     ]
   end
