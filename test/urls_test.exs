@@ -20,8 +20,8 @@ defmodule UrlsTest do
   end
 
   test "short url" do
-    assert Urls.short_url("http://www.google.com") == "gtu"
-    assert Urls.short_url("http://tecnologia.elpais.com/tecnologia/2015/12/04/actualidad/1449259283_679909.html") == "egia"
+    assert "gtu" = Urls.short_url("http://www.google.com")
+    assert "egia" == Urls.short_url("http://tecnologia.elpais.com/tecnologia/2015/12/04/actualidad/1449259283_679909.html")
   end
 
   test "random char" do

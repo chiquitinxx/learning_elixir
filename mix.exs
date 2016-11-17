@@ -28,8 +28,8 @@ defmodule LearningElixir.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:httpoison, "~> 0.8"},
-      {:credo, "~> 0.3", only: [:dev, :test]}
+      #{:httpoison, "~> 0.8"},
+      {:credo, "~> 0.5.3", only: [:dev, :test]}
       #{:hackney, "~> 1.4"}
     ]
   end

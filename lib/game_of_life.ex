@@ -39,6 +39,6 @@ defmodule GameOfLife do
     row = Enum.at cells, x, []
     Enum.at row, y, :dead
   end
-  def state_of_cell({x, y}, cells), do: :dead
+  def state_of_cell(_, _), do: :dead
 
 end
