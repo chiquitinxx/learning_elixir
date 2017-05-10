@@ -52,7 +52,7 @@ defmodule Contest4 do
    end
 
    def combinations(sides, {i1, i2, _, _} = position, minimum) do
-     #Enum.at is linear, so sloooooow, search for a index based list :)
+     #Enum.at is linear, so sloooooow, search for a index based list or a map :)
      first = Enum.at(sides, i1)
      second = Enum.at(sides, i2)
      third = Enum.at(sides, i2 + 1)
