@@ -2,11 +2,14 @@ defmodule Code8 do
     @moduledoc "Advent of code 2018 day 8"
 
     def sum_metadata(text) do
-        tree_list = text 
-            |> String.split(" ")
-            |> Enum.map(&String.to_integer/1)
-        {_list, acc} = node(tree_list, 0)
+        {_list, acc} = node(split_text(text), 0)
         acc
+    end
+
+    def split_text(text) do
+        text 
+        |> String.split(" ")
+        |> Enum.map(&String.to_integer/1)       
     end
 
     defp node([], acc) do
