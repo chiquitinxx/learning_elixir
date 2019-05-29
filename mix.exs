@@ -29,7 +29,7 @@ defmodule LearningElixir.Mixfile do
   defp deps do
     [
       #{:httpoison, "~> 0.8"},
-      {:credo, "~> 0.5.3", only: [:dev, :test]}
+      {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false}
       #{:hackney, "~> 1.4"}
     ]
   end

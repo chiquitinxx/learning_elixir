@@ -20,10 +20,10 @@ defmodule Contest6 do
      #IO.puts "->" <> row
      [number_levels, number_shortcuts] = split_to_numbers(row)
      shortcuts = get_shortcuts(Enum.take(rest, number_shortcuts))
-                  |> Enum.uniq
-                  |> remove_repeated_initial_and_final
-                  |> remove_worst_than_normal
-                  |> Enum.sort &(&1.initial < &2.initial || &1.final < &2.final)
+                 |> Enum.uniq
+                 |> remove_repeated_initial_and_final
+                 |> remove_worst_than_normal
+                 |> Enum.sort &(&1.initial < &2.initial || &1.final < &2.final)
      map_shortcuts = precalculate_shortcuts(shortcuts, number_levels)
      IO.puts "Case #" <> Integer.to_string(test_number) <> ": " <> Integer.to_string(minimum_path(number_levels, map_shortcuts))
      go_up_tower(Enum.drop(rest, number_shortcuts), test_number + 1, number_tests)
